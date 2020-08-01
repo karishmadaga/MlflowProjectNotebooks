@@ -1,0 +1,15 @@
+artifact_uri: file:///mnt/c/Users/t-kad/home/mlflow/examples/sklearn_elasticnet_wine/mlruns/0/bf976bfc7dbd453cbb747e375eacf039/artifacts
+end_time: 1595883473825
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: bf976bfc7dbd453cbb747e375eacf039
+run_uuid: bf976bfc7dbd453cbb747e375eacf039
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1595883473472
+status: 3
+tags: []
+user_id: karishmadaga
