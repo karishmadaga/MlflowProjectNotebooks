@@ -9,4 +9,5 @@ dependencies:
   - pip
   - pip:
     - mlflow>=1.0
+    - azureml-mlflow
 

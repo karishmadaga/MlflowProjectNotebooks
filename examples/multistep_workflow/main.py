@@ -64,7 +64,14 @@ def _get_or_run(entrypoint, parameters, git_commit, use_cache=True):
         print("Found existing run for entrypoint=%s and parameters=%s" % (entrypoint, parameters))
         return existing_run
     print("Launching new run for entrypoint=%s and parameters=%s" % (entrypoint, parameters))
-    submitted_run = mlflow.run(".", entrypoint, parameters=parameters)
+    # added mlflow project run here
+    config = {"COMPUTE": "cpu-cluster", "USE_CONDA": "True"}
+    submitted_run = mlflow.projects.run(project_uri = ".",
+                                        experiment_name = "multistep-workflow", 
+                                        entry_point = entrypoint, 
+                                        parameters=parameters, 
+                                        backend="azureml",
+                                        backend_config=config)
     return mlflow.tracking.MlflowClient().get_run(submitted_run.run_id)
 
 

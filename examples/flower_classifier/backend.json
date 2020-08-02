@@ -1,5 +1,0 @@
-{
-    "use_conda": "True",
-    "compute": "cpu-cluster",
-    "conda_home": "mlflow-proj-env"
-}

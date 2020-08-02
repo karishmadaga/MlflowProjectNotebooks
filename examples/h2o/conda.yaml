@@ -11,3 +11,4 @@ dependencies:
   - pip:
     - h2o
     - mlflow>=1.0
+    - azureml-mlflow

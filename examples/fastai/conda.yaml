@@ -9,3 +9,4 @@ dependencies:
   - pip:
     - mlflow>=1.9.0
     - fastai==1.0.61
+    - azureml-mlflow
