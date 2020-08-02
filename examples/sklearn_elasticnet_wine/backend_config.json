@@ -1,0 +1,4 @@
+{
+    "USE_CONDA": "True",
+    "COMPUTE": "cpu-cluster"
+}
