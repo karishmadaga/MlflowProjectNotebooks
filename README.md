@@ -1,5 +1,5 @@
 # MlflowProjectNotebooks
-Python notebooks with ML and deep learning examples with Mlflow Projects and AzureML SDK
+Training [MLflow Projects](https://mlflow.org/docs/latest/projects.html) using [Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py) and services. 
 
 To get started, go to [Configuration](configuration.md) to setup your environment.
 
