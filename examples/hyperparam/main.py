@@ -7,7 +7,7 @@ import mlflow.sklearn
 workspace = Workspace.from_config()  
 mlflow.set_tracking_uri(workspace.get_mlflow_tracking_uri())
 
-submitted_run = mlflow.projects.run(uri=".", 
-                                    experiment_name = "azureml-hyperparam",
+submitted_run = mlflow.projects.run(uri="MlflowProjectNotebooks/examples/hyperparam", 
+                                    experiment_name = "hyperparam",
                                     backend = "azureml",
-                                    backend_config = "./backend_config.json")
+                                    backend_config = "MlflowProjectNotebooks/examples/hyperparam/backend_config.json")

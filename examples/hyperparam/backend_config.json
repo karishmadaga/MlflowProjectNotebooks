@@ -1,4 +1,4 @@
 {
-    "use_conda": "True",
-    "conda_home": "mlflow-proj-env"
+    "USE_CONDA": "True",
+    "COMPUTE": "cpu-cluster"
 }

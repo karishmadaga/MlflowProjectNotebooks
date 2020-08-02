@@ -15,8 +15,18 @@ from mlflow.entities import RunStatus
 from mlflow.utils.logging_utils import eprint
 import six
 
+from azureml import core
+from azureml.core import Workspace
+
+import mlflow
+import mlflow.sklearn
+
 from mlflow.tracking.fluent import _get_experiment_id
 
+# azureml-mlflow integration
+workspace = Workspace.from_config()  
+mlflow.set_tracking_uri(workspace.get_mlflow_tracking_uri())
+mlflow.set_experiment("multistep-workflow")
 
 def _already_ran(entry_point_name, parameters, git_commit, experiment_id=None):
     """Best-effort detection of if a run with the given entrypoint name,
@@ -66,7 +76,7 @@ def _get_or_run(entrypoint, parameters, git_commit, use_cache=True):
     print("Launching new run for entrypoint=%s and parameters=%s" % (entrypoint, parameters))
     # added mlflow project run here
     config = {"COMPUTE": "cpu-cluster", "USE_CONDA": "True"}
-    submitted_run = mlflow.projects.run(project_uri = ".",
+    submitted_run = mlflow.projects.run(uri = "MlflowProjectNotebooks/examples/multistep_workflow",
                                         experiment_name = "multistep-workflow", 
                                         entry_point = entrypoint, 
                                         parameters=parameters, 

@@ -11,4 +11,4 @@ config = {"COMPUTE": "cpu-cluster", "USE_CONDA": "True"}
 another_project_run = mlflow.projects.run(uri=".",
                                         experiment_name = "sklearn-elasticnet-wine",
                                         backend = "azureml",
-                                        backend_config = config)
+                                        backend_config = ".\backend_config.json")
