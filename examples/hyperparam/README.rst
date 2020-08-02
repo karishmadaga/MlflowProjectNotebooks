@@ -8,9 +8,7 @@ dataset. The Keras model is fitted by the ``train`` entry point and has two hype
 try to optimize: ``learning-rate`` and ``momentum``. The input dataset is split into three parts: training,
 validation, and test. The training dataset is used to fit the model and the validation dataset is used to
 select the best hyperparameter values, and the test set is used to evaluate expected performance and
-to verify that we did not overfit on the particular training and validation combination. All three
-metrics are logged with MLflow and you can use the MLflow UI to inspect how they vary between different
-hyperparameter values.
+to verify that we did not overfit on the particular training and validation combination.
 
 examples/hyperparam/MLproject has 4 targets:
   * train
@@ -24,44 +22,3 @@ examples/hyperparam/MLproject has 4 targets:
     GPyOpt can run multiple mlflow runs in parallel if run with ``batch-size`` > 1 and ``max_p`` > 1.
   * hyperopt
     use `Hyperopt <https://github.com/hyperopt/hyperopt>`_ to optimize hyperparameters.
-
-
-Running this Example
-^^^^^^^^^^^^^^^^^^^^
-
-You can run any of the targets as a standard MLflow run.
-
-.. code-block:: bash
-
-    mlflow experiments create -n individual_runs
-
-Creates experiment for individual runs and return its experiment ID.
-
-.. code-block:: bash
-
-    mlflow experiments create -n hyper_param_runs
-
-Creates an experiment for hyperparam runs and return its experiment ID.
-
-.. code-block:: bash
-
-    mlflow run -e train --experiment-id <individual_runs_experiment_id> examples/hyperparam
-
-Runs the Keras deep learning training with default parameters and log it in experiment 1.
-
-.. code-block:: bash
-
-    mlflow run -e random --experiment-id <hyperparam_experiment_id>  -P examples/hyperparam
-
-.. code-block:: bash
-
-    mlflow run -e gpyopt --experiment-id <hyperparam_experiment_id>  -P examples/hyperparam
-
-.. code-block:: bash
-
-    mlflow run -e hyperopt --experiment-id <hyperparam_experiment_id> -P examples/hyperparam
-
-Runs the hyperparameter tuning with either random search or GpyOpt or Hyperopt and log the
-results under ``hyperparam_experiment_id``.
-
-You can compare these results by using ``mlflow ui``.

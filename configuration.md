@@ -41,6 +41,9 @@ Then, create a clean conda environment with Python 3.6 and the provided environm
 # conda environment from configuration file
 conda env create -f bug-bash.yaml python=3.6
 
+# optional -n to rename the environment during the creation of it
+conda env create -f bug-bash.yaml -n {name} python=3.6
+
 # clean environment without configuration file
 conda create --name {env-name} python=3.6
 ```
@@ -72,7 +75,34 @@ Check the correct version of Mlflow is installed by running,
 pip show mlflow
 ```
 
-## Configure your Azure ML Workspace and services
-I've created a workspace and a few compute resources to use for the bug bash.
+## Configure your Azure Machine Learning Workspace and services
+I've created a workspace and a few compute resources to use for the bug bash. 
+You can also use your own by creating an AML Workspace in Central US EUAP. Once your Workspace is ready, modify the following code block with your workspace information. 
+
+```
+from azureml.core import Workspace
+
+subscription_id = 
+resource_group = 
+workspace_name = 
+workspace_region = 
+
+try:
+    ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
+    # write the details of the workspace to a configuration file to the notebook library
+    ws.write_config()
+    print("Workspace configuration succeeded. Skip the workspace creation steps below")
+except:
+    print("Workspace not accessible. Change your parameters or create a new workspace")
+
+```
+# MLflow Projects Setup
+
+# How to Use The Sample Notebooks
+Start off with running the project with your local compute before moving onto remote compute targets :) 
+This way, you can test if your project and environment work locally before it costs you $$
+
+# Going further
+Also in this repo are sample projects provided by MLflow along and scripts to run each project. Feel free to test out the integration on these projects and document bugs/errors along the way. Some of these projects can take time to configure environments for (even for remote compute), so skim the conda.yaml before running them. 
 
 
