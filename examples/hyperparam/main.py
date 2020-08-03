@@ -17,21 +17,21 @@ submitted_run = mlflow.projects.run(uri=uri,
 
 # train Keras DL model
 submitted_run = mlflow.projects.run(uri=uri,
-                                    entry_point = "MlflowProjectNotebooks/examples/hyperparam/train",
+                                    entry_point = "train",
                                     backend = "azureml",
                                     backend_config = config)
 # Use hyperopt
 submitted_run = mlflow.projects.run(uri=uri,
-                                    entry_point = "MlflowProjectNotebooks/examples/hyperparam/hyperopt",
+                                    entry_point = "hyperopt",
                                     backend = "azureml",
                                     backend_config = config)
 
 # Use GPyOpt
 submitted_run = mlflow.projects.run(uri=uri,
-                                    entry_point = "MlflowProjectNotebooks/examples/hyperparam/gpyopt",
+                                    entry_point = "gpyopt",
                                     backend = "azureml",
                                     backend_config = config)
-
+# Use random search
 submitted_run = mlflow.projects.run(uri=uri,
                                     entry_point = "random",
                                     backend = "azureml",
